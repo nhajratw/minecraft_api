@@ -3,8 +3,7 @@ require 'minecraft_api'
 describe "Minecraft server" do
 
   before(:each) do
-    @mcapi = MinecraftApi.new
-    @mcapi.connect
+    @mcapi = MinecraftApi.new('10.0.1.129', 4711)
   end
 
   after(:each) do

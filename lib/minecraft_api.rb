@@ -3,11 +3,20 @@ require 'io/wait'
 
 class MinecraftApi
 
-  def connect
-    @socket = TCPSocket.new '10.0.1.129', 4711
+  def initialize(host = 'localhost', port = 4711)
+    @socket = TCPSocket.new host, port
+  end
+
+  # The other api's have a method like this
+  # I haven't seen it be invoked yet. Perhaps it is not needed
+  def drain()
+    while @socket.ready?
+      puts "**** READ A CHARACTER [#{@socket.gets}]"
+    end
   end
 
   def send(data)
+    drain()
     @socket.puts "#{data}"
   end
 
