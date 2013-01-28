@@ -54,6 +54,16 @@ class MinecraftApi
     send("chat.post(#{message})")
   end
 
+  def camera_mode(mode,x=nil,y=nil,z=nil)
+    case mode
+    when :normal then send("camera.mode.setNormal()")
+    when :third_person then send("camera.mode.setThirdPerson()")
+    when :fixed then send("camera.mode.setFixed()")
+    when :position then send("camera.mode.setPos(#{x},#{y},#{z})")
+    else raise RuntimeError("valid camera settings are: :normal, :third_person, :fixed, and :position")
+    end
+  end
+
   def close
     @socket.close
   end
