@@ -19,7 +19,7 @@ class MinecraftApi
 
   def getBlock(x,y,z)
     response = send_and_receive("world.getBlock(#{x},#{y},#{z})")
-    Block.new(response.to_i) 
+    Block.find(response.to_i) 
   end
 
   def setBlock(x,y,z,block)
