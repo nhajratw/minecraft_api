@@ -46,6 +46,10 @@ class MinecraftApi
     send("word.checkpoint.restore()")
   end
 
+  def chat_post(message)
+    send("chat.post(#{message})")
+  end
+
   def close
     @socket.close
   end

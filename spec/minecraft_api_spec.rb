@@ -39,4 +39,8 @@ describe "Minecraft server" do
   it "can checkpoint restore" do
     @mcapi.checkpoint_restore
   end
+
+  it "can send chats" do
+    @mcapi.chat_post("hello")
+  end
 end
