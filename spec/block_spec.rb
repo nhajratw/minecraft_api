@@ -1,11 +1,11 @@
-require 'block_factory'
+require 'block'
 
-describe 'Block Factory' do
+describe 'Block' do
 
   it 'maps the ids from the API to actual blocks' do
 
-    block = BlockFactory.block('12')
-    block.material.should eq(:sand)
+    Block.new(1).material.should eq(:air)
+    Block.new(12).material.should eq(:sand)
   end
 
 end
