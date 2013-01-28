@@ -26,4 +26,17 @@ describe "Minecraft server" do
     block_type = @mcapi.getBlockType(0,0,0)
     block_type.should eq(BlockType::SAND)
   end
+
+  it "can get the height of the world" do
+    y = @mcapi.getHeight(5,5)
+    y.should eq(2)
+  end
+
+  it "can checkpoint save" do
+    @mcapi.checkpoint_save
+  end
+
+  it "can checkpoint restore" do
+    @mcapi.checkpoint_restore
+  end
 end

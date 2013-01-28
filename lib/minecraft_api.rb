@@ -34,6 +34,18 @@ class MinecraftApi
     send("world.setBlock(#{x},#{y},#{z},#{block.id})")
   end
 
+  def getHeight(x,z)
+    send_and_receive("world.getHeight(#{x},#{z})").to_i
+  end
+
+  def checkpoint_save
+    send("word.checkpoint.save()")
+  end
+
+  def checkpoint_restore
+    send("word.checkpoint.restore()")
+  end
+
   def close
     @socket.close
   end
