@@ -75,4 +75,18 @@ describe "Minecraft server" do
     end
   end
 
+  describe "Player API" do
+    it "can put the player on a particular tile" do
+      @mcapi.player_set_tile(20,40,60)
+      vector = @mcapi.player_get_tile
+      vector.should eq([20,40,60])
+    end
+
+    it "can put the player somewhere else" do
+      @mcapi.player_set_tile(-5,10,15)
+      vector = @mcapi.player_get_tile
+      vector.should eq([-5,10,15])
+    end
+  end
+
 end

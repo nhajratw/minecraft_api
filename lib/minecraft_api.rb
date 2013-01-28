@@ -60,9 +60,18 @@ class MinecraftApi
     when :third_person then send("camera.mode.setThirdPerson()")
     when :fixed then send("camera.mode.setFixed()")
     when :position then send("camera.mode.setPos(#{x},#{y},#{z})")
-    else raise RuntimeError("valid camera settings are: :normal, :third_person, :fixed, and :position")
+    else raise RuntimeError.new("valid camera settings are: :normal, :third_person, :fixed, and :position")
     end
   end
+
+  def player_set_tile(x,y,z)
+    send("player.setTile(#{x},#{y},#{z})")
+  end
+
+  def player_get_tile
+    response = send_and_receive("player.getTile()")
+    response.split(',').map { |s| s.to_i }
+  end    
 
   def close
     @socket.close
