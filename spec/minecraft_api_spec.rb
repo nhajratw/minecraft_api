@@ -16,19 +16,19 @@ describe "Minecraft server" do
   end
 
   it "can create a block" do
-    @mcapi.setBlock(0,0,0,BlockType::WOOD)
-    block_type = @mcapi.getBlockType(0,0,0)
+    @mcapi.set_block(0,0,0,BlockType::WOOD)
+    block_type = @mcapi.get_block_type(0,0,0)
     block_type.should eq(BlockType::WOOD)
   end
 
   it "can create a block of a different type" do
-    @mcapi.setBlock(0,0,0, BlockType::SAND)
-    block_type = @mcapi.getBlockType(0,0,0)
+    @mcapi.set_block(0,0,0, BlockType::SAND)
+    block_type = @mcapi.get_block_type(0,0,0)
     block_type.should eq(BlockType::SAND)
   end
 
   it "can get the height of the world" do
-    y = @mcapi.getHeight(5,5)
+    y = @mcapi.get_height(5,5)
     y.should eq(2)
   end
 
