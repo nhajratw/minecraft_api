@@ -15,7 +15,7 @@ describe 'Block' do
     Block.new(8).material.should eq(:water_flowing)
     Block.new(9).material.should eq(:water_stationary)
     Block.new(10).material.should eq(:lava_flowing)
-    Block.new(11).material.should eq(:laval_stationary)
+    Block.new(11).material.should eq(:lava_stationary)
     Block.new(12).material.should eq(:sand)
     Block.new(13).material.should eq(:gravel)
     Block.new(14).material.should eq(:gold_ore)
