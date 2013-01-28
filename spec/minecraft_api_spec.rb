@@ -16,14 +16,14 @@ describe "Minecraft server" do
   end
 
   it "can create a block" do
-    @mcapi.setBlock(0,0,0, Block::WOOD)
-    block = @mcapi.getBlock(0,0,0)
-    block.should eq(Block::WOOD)
+    @mcapi.setBlock(0,0,0,BlockType::WOOD)
+    block_type = @mcapi.getBlockType(0,0,0)
+    block_type.should eq(BlockType::WOOD)
   end
 
   it "can create a block of a different type" do
-    @mcapi.setBlock(0,0,0, Block::SAND)
-    block = @mcapi.getBlock(0,0,0)
-    block.should eq(Block::SAND)
+    @mcapi.setBlock(0,0,0, BlockType::SAND)
+    block_type = @mcapi.getBlockType(0,0,0)
+    block_type.should eq(BlockType::SAND)
   end
 end

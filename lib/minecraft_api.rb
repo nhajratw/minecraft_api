@@ -25,9 +25,9 @@ class MinecraftApi
     @socket.gets.chomp
   end
 
-  def getBlock(x,y,z)
+  def getBlockType(x,y,z)
     response = send_and_receive("world.getBlock(#{x},#{y},#{z})")
-    Block.find(response.to_i) 
+    BlockType.find(response.to_i) 
   end
 
   def setBlock(x,y,z,block)
