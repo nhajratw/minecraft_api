@@ -1,5 +1,15 @@
 class Block
 
+  attr_reader :id
+
+  def initialize(id)
+    @id = id
+  end
+
+  AIR = Block.new(0)
+  SAND = Block.new(12)
+  WOOD = Block.new(17)
+
   MATERIALS = {
     0   => :air,
     1   => :stone,
@@ -73,8 +83,9 @@ class Block
     247 => :nether_reactor_core
   }
 
-  def initialize(id)
-    @id = id
+
+  def ==(another_block)
+    @id == another_block.id
   end
 
   def material

@@ -1,22 +1,32 @@
 require 'socket'
+require 'io/wait'
 
 class MinecraftApi
 
   def connect
-    puts "Opening socket"
     @socket = TCPSocket.new '10.0.1.129', 4711
-    puts "Socket opened"
   end
 
   def send(data)
     puts "Sending #{data}"
-    @socket.sendmsg "#{data}\n", 0
-    puts "Reading from socket"
-    @socket.recvmsg[0].chomp
+    @socket.puts "#{data}"
+  end
+
+  def send_and_receive(data)
+    send(data)
+    @socket.gets.chomp
+  end
+
+  def getBlock(x,y,z)
+    response = send_and_receive("world.getBlock(#{x},#{y},#{z})")
+    Block.new(response.to_i) 
+  end
+
+  def setBlock(x,y,z,block)
+    send("world.setBlock(#{x},#{y},#{z},#{block.id})")
   end
 
   def close
     @socket.close
-    puts "Socket closed"
   end
 end

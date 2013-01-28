@@ -2,21 +2,28 @@ require 'minecraft_api'
 
 describe "Minecraft server" do
 
+  before(:each) do
+    @mcapi = MinecraftApi.new
+    @mcapi.connect
+  end
+
+  after(:each) do
+    @mcapi.close
+  end
+
   it "returns a 'Fail' when a bad command is sent" do
-
-    mcapi = MinecraftApi.new
-    mcapi.connect
-
-    response = mcapi.send 'junk'
-
+    response = @mcapi.send_and_receive 'junk'
     response.should eq('Fail')
   end
 
-  it "returns a block when a block request is sent" do
-    mcapi = MinecraftApi.new
-    mcapi.connect
+  it "can retrieve a block" do
+    block = @mcapi.getBlock(0,0,0)
+    block.should eq(Block::WOOD)
+  end
 
-    response = mcapi.send 'world.getBlock(0,0,0)'
-    response.should eq('12')
+  it "can create a block" do
+    @mcapi.setBlock(0,0,0, Block::WOOD)
+    block = @mcapi.getBlock(0,0,0)
+    block.should eq(Block::WOOD)
   end
 end
