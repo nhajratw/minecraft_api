@@ -16,14 +16,15 @@ describe "Minecraft server" do
     response.should eq('Fail')
   end
 
-  it "can retrieve a block" do
-    block = @mcapi.getBlock(0,0,0)
-    block.should eq(Block::WOOD)
-  end
-
   it "can create a block" do
     @mcapi.setBlock(0,0,0, Block::WOOD)
     block = @mcapi.getBlock(0,0,0)
     block.should eq(Block::WOOD)
+  end
+
+  it "can create a block of a different type" do
+    @mcapi.setBlock(0,0,0, Block::SAND)
+    block = @mcapi.getBlock(0,0,0)
+    block.should eq(Block::SAND)
   end
 end

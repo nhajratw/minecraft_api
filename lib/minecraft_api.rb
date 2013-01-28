@@ -8,7 +8,6 @@ class MinecraftApi
   end
 
   def send(data)
-    puts "Sending #{data}"
     @socket.puts "#{data}"
   end
 
