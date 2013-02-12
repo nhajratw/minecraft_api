@@ -20,19 +20,19 @@ describe "Minecraft API" do
     let(:world) { @mcapi.world }
 
     it "can have blocks placed in it" do
-      world.set_block(0,0,0,BlockType::WOOD)
+      world.block(0,0,0,BlockType::WOOD)
       block_type = world.block_at(0,0,0)
       block_type.should eq(BlockType::WOOD)
     end
 
     it "can create a block of a different type" do
-      world.set_block(0,0,0,BlockType::SAND)
+      world.block(0,0,0,BlockType::SAND)
       block_type = world.block_at(0,0,0)
       block_type.should eq(BlockType::SAND)
     end
 
-    it "can create multiple blocks" do
-      world.plane(0,0,0,2,2,2,BlockType::SAND)
+    it "can create cubes" do
+      world.cube(0,0,0,2,2,2,BlockType::SAND)
       # need to figure out assertion here.
       # The assertions on each vector come too fast and end up returning
       # types of 0.
@@ -56,7 +56,7 @@ describe "Minecraft API" do
     end
   end
 
-  describe "Camera API" do
+  describe "Camera" do
     let(:camera) { @mcapi.camera }
 
     it "can be set to normal" do

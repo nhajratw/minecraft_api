@@ -8,11 +8,11 @@ class World
     BlockType.find(response.to_i) 
   end
 
-  def set_block(x,y,z,block_type)
+  def block(x,y,z,block_type)
     @api.send("world.setBlock(#{x},#{y},#{z},#{block_type.id})")
   end
 
-  def plane(x1,y1,z1,x2,y2,z2,block_type)
+  def cube(x1,y1,z1,x2,y2,z2,block_type)
     @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block_type.id})")
   end
 
