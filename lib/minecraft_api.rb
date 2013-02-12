@@ -1,9 +1,9 @@
 require 'socket'
 require 'io/wait'
 
-require 'world'
-require 'camera'
-require 'player'
+require_relative 'world'
+require_relative 'camera'
+require_relative 'player'
 
 class MinecraftApi
 

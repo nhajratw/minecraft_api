@@ -1,3 +1,5 @@
+require_relative 'block_type'
+
 class World
   def initialize(api)
     @api = api

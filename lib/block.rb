@@ -1,4 +1,4 @@
-require 'block_type'
+require_relative 'block_type'
 
 class Block
 
