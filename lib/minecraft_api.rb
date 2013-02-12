@@ -3,16 +3,19 @@ require 'io/wait'
 
 require 'world'
 require 'camera'
+require 'player'
 
 class MinecraftApi
 
   attr_reader :world
   attr_reader :camera
+  attr_reader :player
 
   def initialize(host = 'localhost', port = 4711)
     @socket = TCPSocket.new host, port
     @world = World.new(self)
     @camera = Camera.new(self)
+    @player = Player.new(self)
   end
 
   # The other api's have a method like this
@@ -34,14 +37,6 @@ class MinecraftApi
   end
 
 
-  def player_set_tile(x,y,z)
-    send("player.setTile(#{x},#{y},#{z})")
-  end
-
-  def player_get_tile
-    response = send_and_receive("player.getTile()")
-    response.split(',').map { |s| s.to_i }
-  end    
 
   def close
     @socket.close
