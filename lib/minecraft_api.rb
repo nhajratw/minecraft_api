@@ -2,14 +2,17 @@ require 'socket'
 require 'io/wait'
 
 require 'world'
+require 'camera'
 
 class MinecraftApi
 
   attr_reader :world
+  attr_reader :camera
 
   def initialize(host = 'localhost', port = 4711)
     @socket = TCPSocket.new host, port
     @world = World.new(self)
+    @camera = Camera.new(self)
   end
 
   # The other api's have a method like this
@@ -30,16 +33,6 @@ class MinecraftApi
     @socket.gets.chomp
   end
 
-
-  def camera_mode(mode,x=nil,y=nil,z=nil)
-    case mode
-    when :normal then send("camera.mode.setNormal()")
-    when :third_person then send("camera.mode.setThirdPerson()")
-    when :fixed then send("camera.mode.setFixed()")
-    when :position then send("camera.mode.setPos(#{x},#{y},#{z})")
-    else raise RuntimeError.new("valid camera settings are: :normal, :third_person, :fixed, and :position")
-    end
-  end
 
   def player_set_tile(x,y,z)
     send("player.setTile(#{x},#{y},#{z})")

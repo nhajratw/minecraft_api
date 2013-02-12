@@ -57,25 +57,27 @@ describe "Minecraft API" do
   end
 
   describe "Camera API" do
+    let(:camera) { @mcapi.camera }
+
     it "can be set to normal" do
-      @mcapi.camera_mode(:normal)
+      camera.mode(:normal)
     end
 
     it "can be set to third person" do
-      @mcapi.camera_mode(:third_person)
+      camera.mode(:third_person)
     end
 
     it "can be set to fixed" do
-      @mcapi.camera_mode(:fixed)
+      camera.mode(:fixed)
     end
 
     it "can be set to a certain position" do
-      @mcapi.camera_mode(:position,10,20,30)
+      camera.mode(:position,10,20,30)
     end
 
     it "throws an error when an invalid mode is specified" do
       expect {
-        @mcapi.camera_mode(:fake)
+        camera.mode(:fake)
       }.to raise_error(RuntimeError, "valid camera settings are: :normal, :third_person, :fixed, and :position")
     end
   end
