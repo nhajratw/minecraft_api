@@ -11,11 +11,11 @@ class World
   end
 
   def block(x,y,z,block)
-    @api.send("world.setBlock(#{x},#{y},#{z},#{block.id})")
+    @api.send("world.setBlock(#{x},#{y},#{z},#{block.as_parameter_list})")
   end
 
   def cube(x1,y1,z1,x2,y2,z2,block)
-    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block.id})")
+    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block.as_parameter_list})")
   end
 
   def height(x,z)

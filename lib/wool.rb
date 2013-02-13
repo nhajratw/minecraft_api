@@ -11,4 +11,8 @@ class Wool < Block
     super(WOOL_BLOCK_ID)
     @color = color
   end
+
+  def as_parameter_list
+    "#{@id},#{@color}"
+  end
 end

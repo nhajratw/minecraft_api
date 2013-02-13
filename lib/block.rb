@@ -9,6 +9,10 @@ class Block
     @@all_blocks[id] = self
   end
 
+  def as_parameter_list
+    @id
+  end
+
   def self.find(id)
     @@all_blocks[id]
   end
