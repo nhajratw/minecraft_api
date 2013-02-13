@@ -1,6 +1,6 @@
 require 'minecraft_api'
 
-describe "Minecraft API" do
+describe "Minecraft API", :integration => true do
 
   before(:each) do
     @mcapi = MinecraftApi.new('10.0.1.129', 4711)
