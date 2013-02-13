@@ -20,19 +20,26 @@ describe "Minecraft API" do
     let(:world) { @mcapi.world }
 
     it "can have blocks placed in it" do
-      world.block(0,0,0,BlockType::WOOD)
-      block_type = world.block_at(0,0,0)
-      block_type.should eq(BlockType::WOOD)
+      world.block(0,0,0,Block::WOOD)
+      block = world.block_at(0,0,0)
+      block.should eq(Block::WOOD)
     end
 
     it "can create a block of a different type" do
-      world.block(0,0,0,BlockType::SAND)
-      block_type = world.block_at(0,0,0)
-      block_type.should eq(BlockType::SAND)
+      world.block(0,0,0,Block::SAND)
+      block = world.block_at(0,0,0)
+      block.should eq(Block::SAND)
+    end
+
+    it "can create a block colored wool" do
+      wool = Wool.new(Color::RED)
+      world.block(0,0,0,wool)
+      block = world.block_at(0,0,0)
+      block.should eq(wool)
     end
 
     it "can create cubes" do
-      world.cube(0,0,0,2,2,2,BlockType::SAND)
+      world.cube(0,0,0,2,2,2,Block::SAND)
       # need to figure out assertion here.
       # The assertions on each vector come too fast and end up returning
       # types of 0.

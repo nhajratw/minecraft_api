@@ -36,8 +36,6 @@ class MinecraftApi
     @socket.gets.chomp
   end
 
-
-
   def close
     @socket.close
   end

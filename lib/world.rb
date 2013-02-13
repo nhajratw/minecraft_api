@@ -1,4 +1,4 @@
-require_relative 'block_type'
+require_relative 'block'
 
 class World
   def initialize(api)
@@ -7,15 +7,15 @@ class World
 
   def block_at(x,y,z)
     response = @api.send_and_receive("world.getBlock(#{x},#{y},#{z})")
-    BlockType.find(response.to_i) 
+    Block.find(response.to_i) 
   end
 
-  def block(x,y,z,block_type)
-    @api.send("world.setBlock(#{x},#{y},#{z},#{block_type.id})")
+  def block(x,y,z,block)
+    @api.send("world.setBlock(#{x},#{y},#{z},#{block.id})")
   end
 
-  def cube(x1,y1,z1,x2,y2,z2,block_type)
-    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block_type.id})")
+  def cube(x1,y1,z1,x2,y2,z2,block)
+    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block.id})")
   end
 
   def height(x,z)

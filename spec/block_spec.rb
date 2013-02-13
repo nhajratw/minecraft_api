@@ -1,9 +1,10 @@
 require 'block'
 
 describe 'Block' do
-  it 'can be created without any extra data' do
-    block = Block.new(BlockType::GLASS)
-    block.type.should == BlockType::GLASS
+
+  it 'is equivalent to another type with the same id' do
+    b1 = Block.new(0)
+    b2 = Block.new(0)
+    b1.should eq(b2)
   end
 end
-

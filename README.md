@@ -17,7 +17,7 @@ and in your code:
     require 'minecraft-api'
 
     api = MinecraftApi.new(hostname, 4711) # <-- where ever your server is
-    api.world.set_block(5,10,15,BlockType::WOOD)
+    api.world.set_block(5,10,15,Block::WOOD)
     api.player.go(20,40,60)
 
     etc...
