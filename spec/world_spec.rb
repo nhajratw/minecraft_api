@@ -21,4 +21,16 @@ describe 'the World' do
     api.should_receive(:send).with("world.setBlocks(5,6,7,9,9,9,35,14)")
     world.cube(5,6,7,9,9,9,Wool.new(Color::RED))
   end
+
+  it 'translates data into blocks' do
+    api.stub(:send_and_receive).with("world.getBlock(5,6,7)") { "10" }
+    block = world.block_at(5,6,7)
+    block.should == Block::LAVA_FLOWING
+  end
+
+  it 'translates data into blocks with extra data' do
+    api.stub(:send_and_receive).with("world.getBlock(5,6,7)") { "35,14" }
+    block = world.block_at(5,6,7)
+    block.should == Wool.new(Color::RED)
+  end
 end

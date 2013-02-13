@@ -15,4 +15,9 @@ class Wool < Block
   def as_parameter_list
     "#{@id},#{@color}"
   end
+
+  def ==(another_wool)
+    @id == another_wool.id && @color == another_wool.color
+  end
+
 end

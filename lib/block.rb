@@ -9,14 +9,6 @@ class Block
     @@all_blocks[id] = self
   end
 
-  def as_parameter_list
-    @id
-  end
-
-  def self.find(id)
-    @@all_blocks[id]
-  end
-
   AIR                 = Block.new(0)
   STONE               = Block.new(1)
   GRASS               = Block.new(2)
@@ -86,6 +78,14 @@ class Block
   FENCE_GATE          = Block.new(107)
   GLOWING_OBSIDIAN    = Block.new(246)
   NETHER_REACTOR_CORE = Block.new(247)
+
+  def as_parameter_list
+    @id
+  end
+
+  def self.find(id)
+    @@all_blocks[id]
+  end
 
   def ==(another_block)
     @id == another_block.id
