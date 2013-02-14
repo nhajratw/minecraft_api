@@ -18,11 +18,9 @@ class MinecraftApi
     @player = Player.new(self)
   end
 
-  # The other api's have a method like this
-  # I haven't seen it be invoked yet. Perhaps it is not needed
   def drain()
-    while @socket.ready?
-      puts "DRAINING DATA FROM SOCKET [#{@socket.gets}]"
+    if @socket.ready?
+      $stderr.puts "Draining extra data found in socket => [#{@socket.gets.chomp}]"
     end
   end
 
