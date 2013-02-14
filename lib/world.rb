@@ -23,11 +23,11 @@ class World
   end
 
   def save
-    @api.send("word.checkpoint.save()")
+    @api.send("world.checkpoint.save()")
   end
 
   def restore
-    @api.send("word.checkpoint.restore()")
+    @api.send("world.checkpoint.restore()")
   end
 
   def chat_post(message)
