@@ -16,7 +16,9 @@ and in your code:
 
     require 'minecraft_api'
 
-    api = MinecraftApi.new(hostname, 4711) # <-- where ever your server is
+    # hostname should be the ip or hostname of your server.
+    # port defaults to 4711, but you can override it.
+    api = MinecraftApi.new(hostname) 
     api.world.block(5,10,15,Block::WOOD)
     api.player.go(20,40,60)
 
