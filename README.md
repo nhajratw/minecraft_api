@@ -10,11 +10,11 @@ Prerequisites:
 
 To install:
 
-    gem install minecraft-api
+    gem install minecraft_api
 
 and in your code:
 
-    require 'minecraft-api'
+    require 'minecraft_api'
 
     api = MinecraftApi.new(hostname, 4711) # <-- where ever your server is
     api.world.block(5,10,15,Block::WOOD)
