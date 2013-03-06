@@ -1,7 +1,7 @@
 Minecraft API for the Raspberry Pi
 ----------------------------------
 
-An API for the Raspberry Pi version of minecraft
+A Ruby API for the Raspberry Pi version of minecraft
 
 Prerequisites:
 
