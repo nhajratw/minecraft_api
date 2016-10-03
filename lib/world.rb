@@ -14,8 +14,8 @@ class World
     @api.send("world.setBlock(#{x},#{y},#{z},#{block.as_parameter_list})")
   end
 
-  def cube(x1,y1,z1,x2,y2,z2,block)
-    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block.as_parameter_list})")
+  def cube(x1,y1,z1,x2,y2,z2,block,color)
+    @api.send("world.setBlocks(#{x1},#{y1},#{z1},#{x2},#{y2},#{z2},#{block.as_parameter_list},#{color})")
   end
 
   def height(x,z)

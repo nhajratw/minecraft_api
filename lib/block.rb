@@ -35,6 +35,7 @@ class Block
   BED                 = Block.new(26)
   COBWEB              = Block.new(30)
   GRASS_TALL          = Block.new(31)
+  WOOL                = Block.new(35)
   FLOWER_YELLOW       = Block.new(37)
   FLOWER_CYAN         = Block.new(38)
   MUSHROOM_BROWN      = Block.new(39)
