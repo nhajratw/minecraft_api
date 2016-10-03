@@ -24,4 +24,8 @@ and in your code:
 
     etc...
 
+use the Wool class to manipulate wool:
 
+    my_wool = Wool.new(Color.PURPLE)
+    api.world.block(1,5,10,my_wool)
+    
