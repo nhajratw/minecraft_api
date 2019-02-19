@@ -1,3 +1,4 @@
+# Wool color class
 class Color
   WHITE      = 0
   ORANGE     = 1

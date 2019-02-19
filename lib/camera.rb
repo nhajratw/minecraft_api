@@ -1,9 +1,18 @@
+# The camera
 class Camera
-
+  # Initialize the camera object
+  #
+  # @param api [MinecraftApi] API to use
   def initialize(api)
     @api = api
   end
 
+  # Change camera mode
+  #
+  # @param mode [Symbol] camera mode (normal, third_person, fixed or position)
+  # @param x [Double, nil] x coordinate to use when positioning
+  # @param y [Double, nil] y coordinate to use when positioning
+  # @param z [Double, nil] z coordinate to use when positioning
   def mode(mode,x=nil,y=nil,z=nil)
     case mode
     when :normal then command = "setNormal()"
