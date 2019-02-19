@@ -2,8 +2,12 @@ class Block
 
   @@all_blocks = {}
 
+  # @return [Integer] block identifier
   attr_reader :id
 
+  # Initialize a new block
+  #
+  # @param id [Integer] block identifier
   def initialize(id)
     @id = id
     @@all_blocks[id] = self
@@ -79,14 +83,21 @@ class Block
   GLOWING_OBSIDIAN    = Block.new(246)
   NETHER_REACTOR_CORE = Block.new(247)
 
+  # @return [Integer] block identifier
   def as_parameter_list
     @id
   end
 
+  # Find a block in the list
+  #
+  # @param id [Integer] block identifier
   def self.find(id)
     @@all_blocks[id]
   end
 
+  # Test if two blocks are the same
+  #
+  # @param another_block [Block] block to compare to
   def ==(another_block)
     @id == another_block.id
   end
