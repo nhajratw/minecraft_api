@@ -1,31 +1,43 @@
-Minecraft API for the Raspberry Pi
-----------------------------------
+<div align="center">
+    <img src="banner.png">
+    <h1>Minecraft API for the Raspberry Pi</h1>
+</div>
 
 A Ruby API for the Raspberry Pi version of minecraft
 
-Prerequisites:
+## Setup
 
-  * A [Raspberry Pi](http://www.raspberrypi.org)
-  * [Prerelease version of Minecraft](https://dl.dropbox.com/s/hqk8wsdzlyyujli/minecraft-pi-0.1.tar.gz)
+Prerequisites :
 
-To install:
+- A [Raspberry Pi](http://www.raspberrypi.org/products)
+- [Minecraft Raspberry Pi Edition](https://minecraft.net/en-us/edition/pi)
 
-    gem install minecraft_api
+Install the gem using the classic command :
 
-and in your code:
+```bash
+gem install minecraft_api
+```
 
-    require 'minecraft_api'
+Then, setup your code by importing the `minecraft_api` gem and connecting to your game.
 
-    # hostname should be the ip or hostname of your server.
-    # port defaults to 4711, but you can override it.
-    api = MinecraftApi.new(hostname) 
-    api.world.block(5,10,15,Block::WOOD)
-    api.player.go(20,40,60)
+```ruby
+require 'minecraft_api'
 
-    etc...
+# hostname should be the ip or hostname of your server.
+# port defaults to 4711, but you can override it.
+api = MinecraftApi.new(hostname)
+```
 
-use the Wool class to manipulate wool:
+## Playing around
 
-    my_wool = Wool.new(Color.PURPLE)
-    api.world.block(1,5,10,my_wool)
-    
+```ruby
+# Set a block somewhere
+api.world.block(5,10,15,Block::WOOD)
+
+# Teleport the player away
+api.player.go(20,40,60)
+
+# Place a colored wool
+my_wool = Wool.new(Color.PURPLE)
+api.world.block(1,5,10,my_wool)
+```
