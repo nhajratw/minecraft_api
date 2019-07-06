@@ -4,6 +4,7 @@ require 'io/wait'
 require_relative 'world'
 require_relative 'camera'
 require_relative 'player'
+require_relative 'chat'
 
 # The Minecraft API, the core of the library
 class MinecraftApi
@@ -11,6 +12,7 @@ class MinecraftApi
   attr_reader :world
   attr_reader :camera
   attr_reader :player
+  attr_reader :chat
 
   # Initialize the API
   #
@@ -21,6 +23,7 @@ class MinecraftApi
     @world = World.new(self)
     @camera = Camera.new(self)
     @player = Player.new(self)
+    @chat = Chat.new(self)
   end
 
   # Drain socket extra data

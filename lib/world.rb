@@ -60,11 +60,4 @@ class World
   def restore
     @api.send("world.checkpoint.restore()")
   end
-
-  # Send a post in the chat
-  #
-  # @param message [String] message to post
-  def chat_post(message)
-    @api.send("chat.post(#{message})")
-  end
 end
